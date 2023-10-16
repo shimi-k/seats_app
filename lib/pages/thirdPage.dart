@@ -10,8 +10,20 @@ class ThirdPage extends StatelessWidget {
         title: const Text('School'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Container(
-        color: Colors.green,
+      body: Column(
+        children: [
+          TextFormField(
+
+          ),
+          SizedBox(
+            child: ListView.builder(
+              itemBuilder: (context,index){
+
+              }),
+              itemCount: null,
+            ),
+          )
+        ],
       ),
     );
   }
