@@ -28,9 +28,6 @@ class SecondPage extends ConsumerWidget {
     //保持したテキスト情報、削除用のための変数
     final studentsStateSet = ref.read(studentsProvider.notifier);
 
-    //取得した表示用の各リスト
-    final List<Student> studentList = ref.watch(studentsProvider);
-
     return Scaffold(
       body: Center(
         child: Container(
@@ -108,45 +105,6 @@ class SecondPage extends ConsumerWidget {
                   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
                 ),
                 const StudentItemList(),
-                // SliverList(
-                //   delegate: SliverChildBuilderDelegate(
-                //     (context, index) => StudentItemList(
-                //       index: index,
-                //       studentsStateSet: studentsStateSet,
-                //       studentList: studentList,
-                //     ),
-                //     childCount: studentList.length,
-                // Dismissible(
-                //   //StateNotifierで状態管理しているstateのidが一意（のはず）のためKeyとして設定
-                //   key: Key(studentList[index].id.toString()),
-                //   onDismissed: (direction) => students.removeStudent(id),
-                //   child: Card(
-                //     child: ListTile(
-                //       leading: const Icon(Icons.account_circle),
-                //       title: Text(studentList[index].section.toString()),
-                //       subtitle: Text(
-                //         studentList[index].name.toString(),
-                //         style: const TextStyle(fontWeight: FontWeight.bold),
-                //       ),
-                //       trailing: Wrap(
-                //         children: [
-                //           IconButton(
-                //             onPressed: () {},
-                //             icon: const Icon(Icons.create),
-                //           ),
-                //           IconButton(
-                //             onPressed: () {
-                //               students.removeStudent()
-                //             },
-                //             icon: const Icon(Icons.delete),
-                //           ),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // ),
-                // ),
               ],
             ),
           ),

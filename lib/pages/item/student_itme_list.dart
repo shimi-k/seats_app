@@ -4,21 +4,10 @@ import 'package:seats_app/model/student_model.dart';
 import 'package:seats_app/provider/student_notifier.dart';
 
 class StudentItemList extends ConsumerWidget {
-  const StudentItemList({
-    super.key,
-    // required this.index,
-    // required this.studentsStateSet,
-    // required this.studentList,
-  });
-
-  // final int index;
-  // final StudentsNotifier studentsStateSet;
-  // final List<Student> studentList;
+  const StudentItemList({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final student = studentList[index];
-
     //保持したテキスト情報、削除用のための変数
     final studentsStateSet = ref.read(studentsProvider.notifier);
 
