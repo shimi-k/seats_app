@@ -64,7 +64,7 @@ class ThirdPage extends StatelessWidget {
           headerSliverBuilder: (BuildContext context, bool bool) {
             return <Widget>[
               SliverAppBar(
-                title: Text(
+                title: const Text(
                   'Home',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -87,8 +87,8 @@ class ThirdPage extends StatelessWidget {
                 ),
                 actions: [
                   IconButton(
-                    onPressed: () => print('Map pressed'),
-                    icon: Icon(Icons.map),
+                    onPressed: () => debugPrint('Map pressed'),
+                    icon: const Icon(Icons.map),
                     highlightColor: Colors.blue,
                     splashColor: Colors.purple,
                   ),
@@ -96,8 +96,8 @@ class ThirdPage extends StatelessWidget {
                     style: ButtonStyle(
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.blue)),
-                    onPressed: () => print('Cart pressed'),
-                    child: Text(
+                    onPressed: () => debugPrint('Cart pressed'),
+                    child: const Text(
                       'Cart',
                     ),
                   ),

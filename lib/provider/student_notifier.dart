@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:seats_app/model/student_model.dart';
 
-//生徒名
 class StudentsNotifier extends StateNotifier<List<Student>> {
   StudentsNotifier() : super([]);
 
@@ -29,7 +28,7 @@ class StudentsNotifier extends StateNotifier<List<Student>> {
                   : student.name,
             ))
         .toList();
-    debugPrint('edit Student New:${newStudent}');
+    debugPrint('edit Student New:$newStudent');
   }
 
   void removeStudent(int id) {
@@ -38,5 +37,22 @@ class StudentsNotifier extends StateNotifier<List<Student>> {
   }
 }
 
+//入力された組、氏名情報を保持する
 final studentsProvider = StateNotifierProvider<StudentsNotifier, List<Student>>(
     (ref) => StudentsNotifier());
+
+//組の入力値を一時的に保持する
+final sectionTextProvider =
+    StateProvider.autoDispose((ref) => TextEditingController());
+
+//氏名の入力値を一時的に保持する
+final studentNameTextProvider =
+    StateProvider.autoDispose((ref) => TextEditingController());
+
+//組の入力値を一時的に保持する(編集ダイアログ)
+final sectionTextEditProvider =
+    StateProvider.autoDispose((ref) => TextEditingController());
+
+//組の入力値を一時的に保持する(編集ダイアログ)
+final studentNameTextEditProvider =
+    StateProvider.autoDispose((ref) => TextEditingController());

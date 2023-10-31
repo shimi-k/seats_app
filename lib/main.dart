@@ -40,9 +40,9 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends ConsumerWidget {
   final pagesWidget = [
-    FirstPage(),
+    const FirstPage(),
     SecondPage(),
-    ThirdPage(),
+    const ThirdPage(),
   ];
 
   MyHomePage({super.key});
