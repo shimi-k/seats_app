@@ -9,18 +9,22 @@ class StudentItemList extends ConsumerWidget {
   Future<void> _dialogBuilder(
       BuildContext context, WidgetRef ref, Student student) async {
     //テキストの入力値を一時的に保持するのための変数
-    final sectionTextEdit = ref.watch(sectionTextProvider);
-    final stutdentNameTextEdit = ref.watch(studentNameTextProvider);
+    final sectionTextEdit = ref.watch(sectionTextEditProvider);
+    final stutdentNameTextEdit = ref.watch(studentNameTextEditProvider);
 
-    //編集対象のテキスト情報取得
-    final sectionText = ref.read(sectionTextProvider.notifier);
-    final studentText = ref.read(studentNameTextProvider.notifier);
+    //編集対象のテキスト情報取得更新用
+    final sectionText = ref.read(sectionTextEditProvider.notifier);
+    final studentText = ref.read(studentNameTextEditProvider.notifier);
+
+    //タップされた編集対象のリスト情報をダイアログに反映
+    sectionText.state.text = student.section;
+    studentText.state.text = student.name;
 
     return await showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(
+          title: const Text(
             '編集',
             style: TextStyle(fontSize: 14),
           ),
@@ -49,9 +53,15 @@ class StudentItemList extends ConsumerWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    //編集ダイアログで修正されたクラス名、氏名を持たせて状態を更新する（[id]はそのまま）
+                    Student newStudent = Student(
+                        id: student.id,
+                        section: sectionTextEdit.text,
+                        name: stutdentNameTextEdit.text);
+                    ref.read(studentsProvider.notifier).editStudent(newStudent);
                     Navigator.pop(context);
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 )
               ],
             ),
@@ -88,11 +98,7 @@ class StudentItemList extends ConsumerWidget {
                 children: [
                   IconButton(
                     onPressed: () {
-                      //TODO: dialogか編集画面を作る
                       _dialogBuilder(context, ref, studentList[index]);
-                      // studentsStateSet.editStudent(newStudent);
-                      //TODO: ダイアログに入力中に後ろの画面にも入力されてしまう。
-                      // ダイアログで更新した値を非同期で入力してから生とリスト編集するように修正する
                     },
                     icon: const Icon(Icons.create),
                   ),

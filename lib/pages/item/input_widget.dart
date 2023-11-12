@@ -2,14 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:seats_app/provider/student_notifier.dart';
 
-// //組の入力値を保持する
-// final sectionTextProvider =
-//     StateProvider.autoDispose((ref) => TextEditingController());
-
-// //氏名の入力値を保持する
-// final studentNameTextProvider =
-//     StateProvider.autoDispose((ref) => TextEditingController());
-
 class StudentInput extends ConsumerWidget {
   const StudentInput({super.key});
 
@@ -58,8 +50,8 @@ class StudentInput extends ConsumerWidget {
               debugPrint(
                   '登録ボタン押下: 組${sectionText.text}、氏名${stutdentNameText.text}'),
               //登録完了後にテキスト情報を初期化
-              // sectionText.clear(),
-              // stutdentNameText.clear(),
+              sectionText.clear(),
+              stutdentNameText.clear(),
               debugPrint(
                   '登録後にtextFormField初期化: 組${sectionText.text}、氏名${stutdentNameText.text}'),
             },

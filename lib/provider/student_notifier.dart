@@ -53,6 +53,6 @@ final studentNameTextProvider =
 final sectionTextEditProvider =
     StateProvider.autoDispose((ref) => TextEditingController());
 
-//組の入力値を一時的に保持する(編集ダイアログ)
+//氏名の入力値を一時的に保持する(編集ダイアログ)
 final studentNameTextEditProvider =
     StateProvider.autoDispose((ref) => TextEditingController());

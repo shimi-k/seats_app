@@ -33,7 +33,7 @@ class SecondPage extends ConsumerWidget {
                     ),
                   ),
                   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                  title: StudentInput(),
+                  title: const StudentInput(),
                 ),
                 const StudentItemList(),
               ],

@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends ConsumerWidget {
   final pagesWidget = [
     const FirstPage(),
-    SecondPage(),
+    const SecondPage(),
     const ThirdPage(),
   ];
 
