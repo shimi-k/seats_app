@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978199260460",
+    "project_id": "seats-app-firebase",
+    "storage_bucket": "seats-app-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978199260460:android:785fd492af2568b6d7d089",
+        "android_client_info": {
+          "package_name": "com.example.seats_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_RmFdifRXBWtRKOKUicsU9Doc2oh6glk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

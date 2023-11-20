@@ -6,7 +6,23 @@ class StudentsNotifier extends StateNotifier<List<Student>> {
   StudentsNotifier() : super([]);
 
   void addStudent(String section, String name) {
-    int id = (state.isEmpty) ? 1 : state.last.id + 1;
+    int id;
+    if (state.isEmpty) {
+      id = 1;
+    } else {
+      //リストにあるStudent.idが最大値のidを取得して+1する（リストの順番を入れ替える処理の対策）
+      final Student studentMaxId = state.reduce((student1, student2) =>
+          student1.id > student2.id ? student1 : student2);
+      id = studentMaxId.id + 1;
+    }
+
+    //もしidが重複した際は登録させない
+    final s = state.where((a) => a.id == id);
+    if (s.isNotEmpty) {
+      debugPrint('Duplicate Student id ');
+      return;
+    }
+
     state = [
       ...state,
       Student(id: id, section: section, name: name),
@@ -34,6 +50,10 @@ class StudentsNotifier extends StateNotifier<List<Student>> {
   void removeStudent(int id) {
     state = state.where((student) => student.id != id).toList();
     debugPrint('remove Student id:$id 残りのリスト$state');
+  }
+
+  void overrideState(List<Student> students) {
+    state = [...students];
   }
 }
 

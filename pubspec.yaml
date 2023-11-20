@@ -3,6 +3,7 @@ dependencies:
   avatar_glow: ^2.0.2
   build_runner: ^2.4.6
   cupertino_icons: ^1.0.2
+  firebase_core: ^2.22.0
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -24,6 +25,7 @@ environment:
 flutter:
   assets:
     - images/owl.png
+    - images/school.png
   uses-material-design: true
 name: seats_app
 publish_to: none

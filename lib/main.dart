@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('ja', ''),
@@ -58,12 +59,12 @@ class MyHomePage extends ConsumerWidget {
           destinations: const [
             NavigationDestination(
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: 'Seats',
               selectedIcon: Icon(Icons.home_outlined),
             ),
             NavigationDestination(
               icon: Icon(Icons.business),
-              label: 'Business',
+              label: 'Member',
               selectedIcon: Icon(Icons.business_outlined),
             ),
             NavigationDestination(

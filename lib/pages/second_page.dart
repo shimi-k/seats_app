@@ -5,8 +5,6 @@ import 'item/student_itme_list.dart';
 
 class SecondPage extends ConsumerWidget {
   const SecondPage({super.key});
-  final String _imageUrl =
-      'https://shop.creativefreaks.net/wp-content/uploads/edd/2019/09/Thumbnail_S001_1.png';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,8 +25,8 @@ class SecondPage extends ConsumerWidget {
                   floating: true,
                   stretch: true,
                   flexibleSpace: FlexibleSpaceBar(
-                    background: Image.network(
-                      _imageUrl,
+                    background: Image.asset(
+                      'images/school.png',
                       fit: BoxFit.fill,
                     ),
                   ),

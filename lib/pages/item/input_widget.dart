@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:seats_app/provider/student_notifier.dart';
-import 'package:speech_to_text/speech_recognition_error.dart';
-import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:avatar_glow/avatar_glow.dart';
 
@@ -91,7 +89,8 @@ class SpeechButton extends StatelessWidget {
   }
 }
 
-//音声入力用 StatefulWidget TODO:StatlessWEWidgetにできないか？
+//音声入力用 StatefulWidget
+//TODO:マイクの動作確認が必要
 class SpeechToText extends StatefulWidget {
   const SpeechToText({super.key});
 
@@ -121,7 +120,6 @@ class _SpeechToTextState extends State<SpeechToText> {
         setState(() {
           _words = result.recognizedWords;
         });
-        debugPrint(result.recognizedWords);
       });
     } else {
       print('The user has denied the use of speech recognition');
