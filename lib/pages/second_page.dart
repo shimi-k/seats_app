@@ -8,33 +8,36 @@ class SecondPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          color: Colors.grey,
-          child: RefreshIndicator(
-            onRefresh: () async {
-              return Future<void>.delayed(const Duration(seconds: 1));
-            },
-            child: CustomScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              slivers: <Widget>[
-                SliverAppBar(
-                  toolbarHeight: 220.0 + kToolbarHeight,
-                  // pinned: true,
-                  floating: true,
-                  stretch: true,
-                  flexibleSpace: FlexibleSpaceBar(
-                    background: Image.asset(
-                      'images/school.png',
-                      fit: BoxFit.fill,
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            color: Colors.grey,
+            child: RefreshIndicator(
+              onRefresh: () async {
+                return Future<void>.delayed(const Duration(seconds: 1));
+              },
+              child: CustomScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                slivers: <Widget>[
+                  SliverAppBar(
+                    toolbarHeight: 220.0 + kToolbarHeight,
+                    // pinned: true,
+                    floating: true,
+                    stretch: true,
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: Image.asset(
+                        'images/school.png',
+                        fit: BoxFit.fill,
+                      ),
                     ),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.inversePrimary,
+                    title: const StudentInput(),
                   ),
-                  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                  title: const StudentInput(),
-                ),
-                const StudentItemList(),
-              ],
+                  const StudentItemList(),
+                ],
+              ),
             ),
           ),
         ),

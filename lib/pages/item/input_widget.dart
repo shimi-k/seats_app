@@ -58,7 +58,7 @@ class StudentInput extends ConsumerWidget {
               debugPrint(
                   '登録ボタン押下: 組${sectionText.text}、氏名${stutdentNameText.text}'),
               //登録完了後にテキスト情報を初期化
-              sectionText.clear(),
+              // sectionText.clear(), //クラス名はそのままで生徒だけをどんどん追加するときに残しておいたほういいか？
               stutdentNameText.clear(),
               debugPrint(
                   '登録後にtextFormField初期化: 組${sectionText.text}、氏名${stutdentNameText.text}'),
@@ -122,7 +122,7 @@ class _SpeechToTextState extends State<SpeechToText> {
         });
       });
     } else {
-      print('The user has denied the use of speech recognition');
+      debugPrint('The user has denied the use of speech recognition');
       debugPrint('error: $micError, status: $micStatus');
     }
   }
