@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seats_app/pages/item/chat_widget.dart';
+import 'package:seats_app/pages/item/setting.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -25,10 +27,8 @@ class ThirdPage extends StatelessWidget {
   TabBarView _buildTabBarView() {
     return TabBarView(
       children: [
-        const Animate(),
-        Container(
-          color: Colors.purple,
-        ),
+        ContactsList(),
+        const Settings(),
       ],
     );
   }
@@ -90,6 +90,45 @@ class ThirdPage extends StatelessWidget {
   }
 }
 
+class ContactsList extends StatelessWidget {
+  ContactsList({super.key});
+  //TODO:riverpodかFirebaseで管理するか？
+  final List<String> contactsList = [
+    '田中 太郎',
+    '永井 次郎',
+    '佐藤 花子',
+    '石井 三郎',
+    '山田 ひかる',
+    '吉田 太郎',
+    '吉田 次郎',
+    '吉田 三郎',
+    '吉田 四郎',
+    '吉田 五郎',
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: contactsList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+          leading: const Icon(Icons.person_pin_outlined),
+          title: Text(contactsList[index]),
+          trailing: IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ChatWidget(
+                        contactName: contactsList[index],
+                      )));
+            },
+            icon: const Icon(Icons.mail),
+          ),
+        );
+      },
+    );
+  }
+}
+
+//アニメサンプル
 class Animate extends StatefulWidget {
   const Animate({super.key});
 
